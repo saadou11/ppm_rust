@@ -1,2 +1,4 @@
 .git/
 target/
+src/main
+src/ppma_io.o

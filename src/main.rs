@@ -160,7 +160,7 @@ impl Image {
 }
 
 
-fn file_to_image<'a>(path: &'a str) -> Image {
+fn new_with_file<'a>(path: &'a str) -> Image {
     let whole_file = filename_to_string(path).unwrap();
     let liste = words_by_line(&whole_file);
     let header= liste[0][0].to_string();
@@ -226,6 +226,7 @@ fn write_ppm (a:&str){
 
 
 fn main() {
+    write_ppm("myppmImage.ppm");
 }
 
 // ===============level 3===================
@@ -308,7 +309,7 @@ mod tests {
 
     #[test]
     fn test_invert_from_image() {
-        //creating envirenement test
+        
         let pxl = Pixel::new(10,10,10);
         let pxl2 = Pixel::new(155,155,155);
         let pixel_vec = vec![pxl,pxl2,pxl,pxl2,pxl,pxl2];
@@ -350,7 +351,7 @@ mod tests {
         let image = Image::new(header,max_color, width, heigth, pixel_vec);
 
         
-        let image_from_file= file_to_image("src/test.txt");
+        let image_from_file= new_with_file("src/test.txt");
         let mut test =true;
         
 
@@ -382,7 +383,7 @@ mod tests {
         let path = Path::new("src/test.txt");
         image.save(&path);
 
-        let image_for_check= file_to_image("src/test.txt");
+        let image_for_check= new_with_file("src/test.txt");
         let mut test =true;
         
 
