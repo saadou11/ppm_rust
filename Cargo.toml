@@ -1,0 +1,18 @@
+[package]
+name = "ppm"
+version = "1.0.0"
+authors = ["Saad MAHI <saadoumahi@gmail.com> ", "Lakri Akriche <akriche.lakri@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "src"
+path = "src/main.rs"
+crate-type = ["dylib"]
+
+[dependencies]
+cty = "0.2.1"
+map_in_place = "0.1.0"
+
+
